@@ -20,6 +20,10 @@ namespace BMI
         {
             //throw new NotImplementedException();
             float height = float.Parse(EntryHeight.Text);
+            if (height >= 3)
+            {
+                height = height / 100;
+            }
             int weight = int.Parse(EntryWeight.Text);
             Navigation.PushModalAsync(new NavigationPage(new BmiResult
                 (height,weight)));
@@ -28,10 +32,15 @@ namespace BMI
         private void ButtonBmiClickEvent(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
-            String a = EntryHeight.Text;
-            String b = EntryWeight.Text;
-            float height = float.Parse(a);
-            int weight = int.Parse(b);
+            
+            
+            float height = float.Parse(EntryHeight.Text);
+            if (height >= 3)
+            {
+                height = height / 100;
+            }
+            
+            int weight = int.Parse(EntryWeight.Text);
 
             LabelResult.Text = ""+weight/ (height * height);
             
